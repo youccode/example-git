@@ -2,36 +2,33 @@
 
 int main(void)
 {
-    int remainder[10];
+    int cnt;
     int input;
+    float result;
 
-    for (int i = 0; i < 10; i++)
+    scanf("%d", &cnt);
+    float list[cnt];
+
+    for (int i = 0; i < cnt; i++)
     {
         scanf("%d", &input);
-        remainder[i] = input % 42;
+        list[i] = input;
     }
 
-    int cnt = 1;
-    int count[10] = {
-        -1,
-    };
+    int max = list[0];
 
-    count[0] = remainder[0];
-
-    for (int i = 1; i < 10; i++)
+    for (int i = 0; i < cnt; i++)
     {
-        for (int j = 0; j < cnt; j++)
-        {
-            if (count[j] == remainder[i])
-                break;
-            if (j == cnt - 1)
-            {
-                count[cnt] = remainder[i];
-                cnt++;
-            }
-        }
+        if (max < list[i])
+            max = list[i];
     }
 
-    printf("%d\n", cnt);
+    for (int i = 0; i < cnt; i++)
+    {
+        list[i] = list[i] / (float)max * 100;
+        result += list[i];
+    }
+
+    printf("%f\n", result / cnt);
     return 0;
 }
