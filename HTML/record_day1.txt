@@ -1,0 +1,10 @@
+DAY 1 HTML 공부 시작
+
+웹 페이지 == HTML 문서, HTML의 태그들로 구성됨 - 태그는 웹 페이지의 디자인이나 기능을 결정
+
+START STUDYING WITH 생활코딩 (Until )
+
+만들어낸 html 파일을 실행하기 위해서는 explorer.exe prac1.html(파일명) 
+ - 다음의 명령어를 활용하여서 실행시킬 수 있음.
+
+ 
