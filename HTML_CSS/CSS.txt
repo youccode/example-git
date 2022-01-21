@@ -1,0 +1,5 @@
+DAY 2 CSS 공부 / 2022.01.21
+
+1. <style> - </style>
+ - 다음의 Tag를 html 파일에 적음으로서 <style> - </style> 내부 속의 내용은 CSS의 언어로 해석하라는
+  것과 동일함.
