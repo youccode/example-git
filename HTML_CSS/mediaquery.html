@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>화면 크기에 따라 변하는 웹페이지 만들기</title>
+        <style>
+            div {
+                border: 10px solid green;
+                font-size: 60px;
+            }
+            /* pseudo code -> screen width > 800px / real code -> @media */
+            @media(min-width:800px){ /* 최솟값이 800px == 넓이가 800px 이상이다와 같다. 
+                                    max-width를 쓰게 되면 최댓값이 800이 될 때 display가 사라진다.*/
+                div {
+                    display: none;
+                }    
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <div>
+            Responsive
+        </div>
+    </body>
+</html>

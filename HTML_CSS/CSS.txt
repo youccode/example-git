@@ -1,5 +1,48 @@
 DAY 2 CSS 공부 / 2022.01.21
 
+HTML은 뼈대로서 정보를 담는 것을 주력으로 한다. 이를 위하여 개발된 언어가 바로 CSS
+또한 디자인을 하는 과정에서 CSS를 활용하는 것이 훨씬 더 효율적임.
+
 1. <style> - </style>
  - 다음의 Tag를 html 파일에 적음으로서 <style> - </style> 내부 속의 내용은 CSS의 언어로 해석하라는
   것과 동일함.
+
+2. CSS 내부에서 해당 태그에 모두 해당하는 스타일을 적용하고 싶은 경우
+ - ex) <a> Tag - 해당  Tag를 앞에 적어주면 됨. -> Selector
+<style> 
+    a -> Selector{
+        color: red; - > declaration: 선언 / color : property / red: value
+    }
+</style>
+
+3. Attribute - style -> Tag 내부에서 style이라는 속성을 이용하는 것 역시 하나의 CSS라고 할 수 있다.
+ - style 자체는 html의 attribute이지만 그 다음에 오는 내용은 반드시 CSS의 효과.
+
+4. text-decoration-line: none - > style에서 적용되었던 밑줄 효과가 사라짐.
+
+5. Selector, 선택자에 대한 이야기
+ - <id>의 경우, #something {attribute: value}의 형태로 스타일을 지정 후, 적용
+    원칙적으로 하나의 객체에만 적용이 가능함 
+
+ - <class>의 경우, .something {attribute : value}의 형태로 스타일을 지정 후, 적용
+    여러 객체에 적용이 가능함.
+** 두 선택자의 동시 적용이 가능함. Selector의 적용 순서 : id > class > Tag selector
+ - 같은 우선 순위일 경우, 가장 늦게 선언된 것이 적용됨.
+
+6. HTML 속의 Tag들은 각 Tag에 따라 사용하는 넓이가 이미 지정되어 있다.
+ - <h1>과 같은 제목 Tag의 경우, 화면 전체를 사용 - > block level element 
+            - display:inline을 이용하여 inline화 시킬 수 있다.
+   <a>와 같은 Tag는 글자가 있는 혹은 Tag가 있는 부분만의 넓이만을 사용 - > inline element
+inline과 block 이 외에도 inline-block의 형태가 존재함. inline의 형태로 동작하지만 내부에서는
+block과 같이 동작, 즉 너비와 높이를 설정해줄 수 있게 됨. (display:inline-block)
+
+7. 한 영역의 경계를 알기 위해서 사용할 수 있는 명령어
+ - <style>
+        border-style: solid(실선), dotted(점선), dashed(짧은 선이 연속으로 나옴)
+                      double(두 줄), groove(선에 음영이 들어감), ridge(groove보다 진하게)
+                      inset(안으로 들어간 음영), outset(밖으로 튀어나온 음영), none(default)
+                      hidden(숨겨진 상태)
+        border 와 관련된 내용들은 border : 5px solid red .. 의 형태로 순서 상관없이 적어도
+        동일하게 적용됨.
+
+        

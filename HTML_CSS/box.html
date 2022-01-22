@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Styling the Box model</title>
+        <style>
+            h1, a {
+                border-width: 1px;
+                border-color: red;
+                border-style: dotted; /* -> border : 5px solid red; 순서 상관 X 같은 효과*/
+                display:block;
+                padding: 20px; /*content와 border 사이의 간격을 조절하는 명령 */
+                margin-bottom: 100px; /*margin은 border와 border 사이의 간격 조절 */
+            }
+
+            a {
+                background-color: aqua;
+
+            }
+
+            a:hover { 
+                background-color: gold;
+            }
+
+            img {
+                visibility: visible; /* -> 아예 보이거나 안 보이거나 하게 하는 Tag */
+                opacity: 0.3;
+                width: 50%;
+            }
+
+            img:hover {
+                opacity: 1.0; /* -> 투명도를 조절하는 code, 0 ~1 사이의 값으로 설정 */
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>CSS</h1> <a href="#">다음과 같이 hover라고 적게 될 경우, 마우스 포인터가 위에 있다는 것을 인식함</a>
+        <hr>
+        
+        <img src="the_pic_of_IU.jpg">
+    </body>
+</html>

@@ -1,0 +1,51 @@
+a {
+  color: black;
+  text-decoration-line: none;
+}
+h1 {
+  font-size: 45px;
+  text-align: center;
+  border-bottom: 5px black solid;
+  margin: 0px;
+  padding: 20px;
+}
+#active {
+  color: blue;
+}
+.saw {
+  color: black;
+}
+.saw:visited {
+  color: gray;
+}
+#grid ol {
+  /*grid id 밑에 있는 Tag 중에 ol인 아이만을 선택함  
+            ol.grid 였다면 gird의 클래스를 가지고 있는 ol을 의미함.*/
+  border-right: 5px solid black;
+  width: 100px;
+  margin-top: 0px;
+  padding: 20px;
+  padding-right: 5px;
+}
+body {
+  margin: 0;
+}
+p {
+  margin-left: 5px;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+#article {
+  padding-left: 25px;
+}
+@media (max-width: 800px) {
+  #grid {
+    display: block;
+  }
+  #grid ol {
+    border-right: none;
+  }
+}

@@ -55,7 +55,7 @@ Attribute를 사용하게 될 것이다.
 15. <body> - </body> - > 해당 HTML 문서의 텍스트, 하이퍼링크, 이미지, 리스트 등 모든 Contents를
                          포함하는 영역을 정의.
  - HTML 문서에는 단 하나의 <body> 요소만이 존재 가능
- 
+
 DAY 2 / 2022.01.21
 
 16. <a> - </a> - anchor(닻)을 의미함. 어느 한 곳에 정착시킨다. 다른 링크로 정착시킴
@@ -67,7 +67,7 @@ DAY 2 / 2022.01.21
 17. <HR> - > Horizontal Rule의 약자, 수평선을 페이지에 만들어준다.
  - 공간 분리용을 사용 가능할 듯. 세로로 긋는 방법은? <div> Tag를 사용한다.
 
-18. <div> -</div> - > Division의 약자, 페이지 내에서 논리적 구분을 정의하는 태그
+18. <div> -</div> - > Division의 약자, 페이지 내에서 논리적 구분을 정의하는 태그 / CSS의 적용 과정에서도 자주 이용되는 듯
  <Attribute> -style: "backgroud-color:(color); width:(num)px; height: (num)px; border: (num)px;
                     solid black; float:(direction-right or left); margin-(top/bottom/left/right): (num)px;"
- 
+ - 단지 Design의 용도로 사용되는 Tag임. 딱히 아무 의미 없는듯.
