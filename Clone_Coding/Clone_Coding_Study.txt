@@ -1,0 +1,23 @@
+ < JavaSript 공부에 대한 내용들 >
+
+1. alert(): 배네로서 나타나게 하는 function.
+
+2. JavaSript를 실행시키기 위해서는 HTML의 <body>에서 <script> Tag를
+   사용해주어야 한다.
+
+3. JavaSript는 Datatype을 자동으로 인식할 수 있는 능력이 있음.
+ - C, Python 같이 integer, float 등의 Datatype이 존재.
+ - integer와 float의 덧셈을 자동을 함.
+ - String type이 존재. -> "hello" using double quote.
+    - String 같의 덧셈도 자동으로 함.
+ - 나눗셈의 경우도 동일하게 정수를 나누어 실수의 값을 얻는 것이 가능함.
+
+4. console.log() -> console에 명령을 보내는 것임. 
+
+5. const -> constant, variable을 사용하기 위해서 써줘야함.
+ - 변하지 않고 유지되는 값이라는 거임.
+
+6. Python과 같은 경우, 보통 variable의 공백을 underbar를 이용하여 나타내지만
+ JavaSript와 같은 경우, 공백 다음의 글자를 대문자로 나타낸다.
+    -> camelCase라고 함 -> 낙타같이 생겨서 그러나봄
+    -> Python의 방식의 경우 -> snake_case라고 함.
