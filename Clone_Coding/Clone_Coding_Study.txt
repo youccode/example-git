@@ -9,6 +9,14 @@
  - C, Python 같이 integer, float 등의 Datatype이 존재.
    -또다른 Datatype으로 있는 것은 Boolean -> 파이썬에서 배운 것과 동일하게 true, false에 대한 값
       - 사용자가 login을 한 상황, 비디오가 재생되고 있는 지 등의 여부에 대해 체크하는 경우 사용
+   -아무것도 존재하지 않음을 의미하는 데이터를 정의하는 방법으로는 "null"을 사용하면 됨.
+   -모든 variable에 대하여 그에 해당하는 value를 주는 경우 ->defined
+   - 나머지의 모든 경우 -> undefined / 일종의 type
+   - 다른 언어들과 동일하게 []을 이용하면 array type을 정의할 수 있음,
+      -array의 경우, 내가 define하지 않은 곳까지 index가 넘어기먄 출력값이 undefined가 됨.
+      -array.push(item)의 형태로 item 추가가 가능함.
+      -ex) array = [mon, tue, wed, thu, fri, sat, sun]
+
  - integer와 float의 덧셈을 자동을 함.
  - String type이 존재. -> "hello" using double quote.
     - String 같의 덧셈도 자동으로 함.
@@ -34,3 +42,13 @@
 7. 변수의 대부분은 const의 형태로 만들고 update의 필요성이 느껴지는 부분에 한해서만 let을 사용하는 것이
    일반적인 룰이다.
 
+8. object.something -> object를 만드는 방법
+   - const object = {
+         property1 = value1,
+         property2 = value2,
+         property3 = value3
+   };
+   -object의 내부에서는 ;가 아닌 , 를 사용한다.
+   - object.property1 == object["property1"] -> property를 불러올 때는 string의 형태로 가져와야 함.
+   -object의 property는 언제든 업데이트가 가능하다. 
+   - 있지 않는 property에 대해서는 player.newProperty의 형태로 언제든지 추가가능하다.
