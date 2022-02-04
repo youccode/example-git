@@ -4,23 +4,55 @@
 
 2. JavaSript를 실행시키기 위해서는 HTML의 <body>에서 <script> Tag를
    사용해주어야 한다.
+   - <script src="script.js"></script>
 
 3. JavaSript는 Datatype을 자동으로 인식할 수 있는 능력이 있음.
- - C, Python 같이 integer, float 등의 Datatype이 존재.
+   - C, Python 같이 integer, float 등의 Datatype이 존재.
    -또다른 Datatype으로 있는 것은 Boolean -> 파이썬에서 배운 것과 동일하게 true, false에 대한 값
       - 사용자가 login을 한 상황, 비디오가 재생되고 있는 지 등의 여부에 대해 체크하는 경우 사용
+
    -아무것도 존재하지 않음을 의미하는 데이터를 정의하는 방법으로는 "null"을 사용하면 됨.
+
    -모든 variable에 대하여 그에 해당하는 value를 주는 경우 ->defined
    - 나머지의 모든 경우 -> undefined / 일종의 type
+
    - 다른 언어들과 동일하게 []을 이용하면 array type을 정의할 수 있음,
       -array의 경우, 내가 define하지 않은 곳까지 index가 넘어기먄 출력값이 undefined가 됨.
       -array.push(item)의 형태로 item 추가가 가능함.
       -ex) array = [mon, tue, wed, thu, fri, sat, sun]
 
- - integer와 float의 덧셈을 자동을 함.
- - String type이 존재. -> "hello" using double quote.
-    - String 같의 덧셈도 자동으로 함.
- - 나눗셈의 경우도 동일하게 정수를 나누어 실수의 값을 얻는 것이 가능함.
+      - /* -- Part for the array -- */
+
+         const mon = "mon";
+         const tue = "tue";
+         const wed = "wed";
+         const thu = "thu";
+         const fri = "fri";
+         const sat = "sat";
+         const sun = "sund";
+
+         const daysOfWeek = mon + tue + wed + thu + fri + sat + sun;
+
+         console.log(daysOfWeek);
+         /* not using array, we can just make the bunches of strings which is useless */
+
+         const daysOfWeek_array = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+         -- Get Item from Array --
+         console.log(daysOfWeek_array[num]);
+
+         // -- Add one more Item to the Array --
+
+         daysOfWeek_array.push("none");
+
+         console.log(daysOfWeek_array);
+
+   - integer와 float의 덧셈을 자동으로 함.
+
+   - String type이 존재. -> "hello" using double quote.
+      - String 같의 덧셈도 자동으로 함.
+      - 나눗셈의 경우도 동일하게 정수를 나누어 실수의 값을 얻는 것이 가능함.
+      - JavaSript에서 pow는 **로 표현한다.
 
 4. console.log() -> console에 명령을 보내는 것임. 
 
@@ -43,12 +75,117 @@
    일반적인 룰이다.
 
 8. object.something -> object를 만드는 방법
-   - const object = {
-         property1 = value1,
-         property2 = value2,
-         property3 = value3
-   };
-   -object의 내부에서는 ;가 아닌 , 를 사용한다.
+   - -- How to organize the "Object" --
+
+      const player = {
+        name: "woochan",
+        points: 10,
+        fat: true,
+      };
+
+      console.log(player);
+      player.lastname = "Im";
+      console.log(player.lastname); --> How make a object
+
+   - object의 내부에서는 ;가 아닌 , 를 사용한다.
    - object.property1 == object["property1"] -> property를 불러올 때는 string의 형태로 가져와야 함.
-   -object의 property는 언제든 업데이트가 가능하다. 
+   - object의 property는 언제든 업데이트가 가능하다. 
    - 있지 않는 property에 대해서는 player.newProperty의 형태로 언제든지 추가가능하다.
+   - 현재 object로 만든 것은 function이 아니다.
+
+9. function은 우리가 만든 code piece를 반복적으로 사용할 수 있게 만드는 것이다.
+   - function을 실행하는 과정에서, argument를 이용하여 원하는 정보를 보낼 수 있다.
+   - * NaN라고 function을 통해서 뜨는 것은 Not a Number를 줄여서 말하는 것이다.
+   - 여러 개의 argument를 할당받고자 하는 경우, 단순히 ","를 이용하여 더 적으면 됨.
+
+   -     -- How make a function --
+
+   console.log("Hello my name is Woochan");
+   console.log("Hello my name is Woochan");
+   console.log("Hello my name is Woochan");
+   console.log("Hello my name is Woochan");
+   console.log("Hello my name is Woochan");
+   console.log("Hello my name is Woochan"); // If we don't have a function thing.
+
+   function sayHello(nameOfPerson, age) {
+     console.log("Hello my name is " + nameOfPerson + " and I'am " + age);
+   }
+
+   sayHello("woochan", 21);
+   sayHello("dal", 23);
+   sayHello("Nice", 24);
+
+   function plus(a, b) {
+     console.log(a + b);
+   }
+
+   function divide(a, b) {
+     console.log(a / b);
+   }
+
+   plus(8, 60);
+   divide(98, 20);
+
+   // -- How make function inside the object --
+
+   - object 안에 function을 만들게 되는 경우, function의 title과 function 선언부의 순서가 바뀐다.
+
+   const player = {
+     name: " woochan",
+     sayName: function (--argument--) {
+       console.log("Player's name is " + this.name);
+     },
+     sayHello: function (otherPersonsName) {
+       console.log("Hello " + otherPersonsName + " nice to meet you");
+     },
+   };
+   player.sayHello("lynn");
+   player.sayName();
+
+10. placeholder는 html에서 input Tag 안에 존재하는 속성이다.
+   - data를 미리 잡아놓고 있는 역할을 함.
+
+11. 함수에서 도출된 값을 얻고자 하는 경우, 다른 언어들과 동일하게 return 명령어를 사용하면 됨.
+   - C언어와 동일하게 function 내부에서 return이 수행되면 function 밖으로 나오게 됨.
+
+12. conditional == 조건문, keyword => If / else ;
+   - if()의 argument는 무조건 boolean의 형태여야 함.
+   - else if도 사용 가능.
+   - or(||), and(&&), ==, !=, >, < 등의 연산자가 모두 동일하게 작동.
+      - ==경우, Equal Operator로서 variable의 값만을 비교하여 return함.
+      - ===의 경우, Strict Equal Operator로서 variable의 값과 Datatype까지 모두 같은 경우 true
+      
+   - C와는 다르게 if문 안에서 하나의 조건식이 실행되고 나면, 이후의 조건을 만족한다고 하여도
+     그 code는 실행되지 않음. / 순서를 신경써서 써야함.
+
+   - == Example of How to use conditional == 
+
+   // prompt function은 사용자가 쓸 수 있는 창을 띄워준다.
+   // 2개의 argument를 받으며, 첫 번재는 message(string), 내가 띄우고자 하는 말
+   // 두 번째는 default(string)로서 입력 칸에 미리 Typed 된 내용을 적는 것이다.
+   // prompt의 값이 실행되지 않으면 이 외의 javascript는 실행되지 않는다. 매우 오래된 방식.
+
+   const age = parseInt(prompt("How old are you?", "Type it"));
+
+   console.log(typeof age, typeof parseInt(age));
+   // variable의 type을 알기 위해서는 typeof를 사용하면 됨.
+   //parseInt는 이미 만들어져있는 function으로서 string -> number 로 만드는 function이다.
+
+   //isNaN() : argument가 NaN(Not a Number)인지 아닌지를 boolean 값으로 return함.
+   // - true: Not a Number / false: Number
+
+   console.log(isNaN(age));
+
+   if (isNaN(age) || age < 0) {
+     console.log("Please write a real positive number");
+   } else if (age < 18) {
+     console.log("You are too young.");
+   } else if (age >= 18 && age <= 50) {
+     console.log("You can drink");
+   } else if (age > 50 && age <= 80) {
+     console.log("You better do stuff that makes you healthier");
+   } else if (age > 80) {
+     console.log(
+       "You can do whatever you want, already you're far from living long "
+     );
+   }
