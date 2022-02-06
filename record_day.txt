@@ -12,3 +12,8 @@ DAY 2 / 2022.01.21
     Internet vs WEB What is the difference between them?
     - 인터넷이 도시라면 웹은 도시 속의 건물 하나.
     - 웹은 인터넷의 부분 집합.
+
+Tip. Github clone 하는 방법
+        - ctrl + shift + P --> Git:clone
+     Git pull 하는 방법
+        - Terminal에 git pull <remote branch> <local branch>
