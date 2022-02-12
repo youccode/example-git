@@ -1,0 +1,107 @@
+
+What is JDL
+: JDK is Java Development Kit의 약자. 자바 프로그램을 만들기 위해 필수임.
+
+<Ordinary Type of Java Source Code>
+    ClassName.java
+    -- Code start --
+        /*Class Block */
+        public class ClassName {
+
+            /*method block*/
+            [ public | private | protected] [static] (return 자료형 | void) methodName (입력자료형 입력변수, ...) {
+                명령문(statement);
+                ...
+            }
+
+            /*method block */
+            [ public | private | protected] [static] (return 자료형 | void) methodName (입력자료형 입력변수, ...) {
+                명령문(statement);
+                ...
+            }
+        }
+
+    - Source code의 가장 바깥은 class 블록 && class명 == 소스파일명
+    - [ public | private | protected]: Method의 접근제어자 택1 혹은 아무것도 없음.
+    - [static]: 있으면 static method 없어도 ㄱㅊ
+    - (return 자료형 | void).isRequired: 필수, return되는 자료형을 표시
+
+
+<How to Compile Java and The Process of Compiling >
+    <Compiling>
+        javac(java compiler) => 자바 파일을 컴파일하는 과정에 사용되는 것 
+        : 작성 소스코드를 기계어로 변환
+
+        .java(자바 파일 or java source) => 우리가 작성하게 되는 자바 프로그램.
+
+    <Whole Process>
+
+        : Myprogram.java - Compiler -> Myprogram.class - Java VM(Virtual Machine) -> My Program
+        Compiler: javac.exe / Java VM: java.exe
+        .class file: JavaVM만 해석 가능
+
+    Java VM의 사용으로 인하여 OS에 구애받지 않고 실행파일 사용 가능 /But 속도 느림.
+
+    <How to excute the .class file>
+        type: java theNameOfJavaClassFile(without .class)
+
+<What is "public">
+    public은 keyword이자 접근제어자 class 명 앞에 사용될 경우 다른 의미를 가짐
+    class명과 파일명이 동일할 경우 class에 public을 붙여야 함.
+        ex) HelloWorld.java / HelloWorld.class
+
+<What is "method">
+    method는 function과 동일한 개념, class 내부의 function은 method라고 한다.
+    자바는 모든 것이 class이므로 자바 속 함수는 모두 method이다.
+
+    main method(.isRequired) => 모든 프로그램의 시작과 끝을 관리하는 method
+
+<What is 접근제어자(Access Modifier)>
+    public: method의 접근제어자. 누구나 이 method에 접근 가능
+     
+<Java Keywords>
+    static: 변수 or method에 사용 가능 / 메모리를 할당 받은 후로, 프로그램이 종료될 때까지 유지
+        - Static variable(==class variable): 객체를 생성하지 않고 Static 자원 접근 가능
+        - Static method: 객체 없이 호출 가능, 객체는 호출 불가능
+            ex) 클래스명.메소드명 => 호출 가능
+
+    void: method의 return 값이 없음을 의미.
+
+<Difference between "Object" and "Instance">
+    Object(객체): class의 타입으로 선언 -> Object
+    Instance: 위의 object를 이용하여 객체에 메모리가 할당되는 순간 -> Instance
+
+<Java DataType>
+    String[]: 문자열을 의미하는 자바의 자료형.([]가 있으므로 한 개가 아닌 여러 개로 이루어진 배열 의미.)
+        - String[] args: args는 변수명, 살짝 convention
+        - String 대문자 주의;
+
+    int: 정수를 의미
+
+    long
+    double
+    boolean
+    char
+    StringBuffer
+    List
+    Map
+    Set
+
+    사용자 정의 자료형: class를 이용하여 자료형을 만들 수 있음.
+
+<How to make a Class's Object(Instance)>
+    ClassName(Class의 자료형임을 의미) var = new ClassName();
+
+<Java Naming Convention>
+    <class>
+        class명은 명사로 한다.
+        CamelCase 방식 따름
+    
+    <Method>
+        method명은 동사로 한다.
+        CamelCase 방식 따름
+    
+    <variable>
+        짧지만 의미를 가져야 함
+        순서를 나타내는 임수 변수 => i, j, k, m, n
+        변수명에 _, $가 사용가능하지만 시작 문자로는 사용하지 않는다.
