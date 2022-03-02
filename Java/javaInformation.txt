@@ -1,3 +1,4 @@
+( until 3장 자료형 Part 4 문자열까지)
 
 What is JDL
 : JDK is Java Development Kit의 약자. 자바 프로그램을 만들기 위해 필수임.
@@ -72,16 +73,114 @@ What is JDL
     Instance: 위의 object를 이용하여 객체에 메모리가 할당되는 순간 -> Instance
 
 <Java DataType>
+    
+    Primitive 자료형: int, long, double, float, boolean, char 등을 지칭함.
+        - new라는 키워드로 객체를 생성할 수 없음.
+
+    < 숫자형 >
+    < 정수형 >
+
+    int: 정수를 나타내는 자료형, 들어가는 범위는 long보다는 적다.
+
+    long: int 형보다 더 큰 정수값을 담을 수 있는 자료형. 
+        - 만약 int 이상의 값을 대입하게 되는 경우, 뒤에 대문자 L을 붙여주어야 한다.
+            - 소문자도 가능하지만 숫자 1과의 구분이 어려우므로 대분자가 convention
+        - * int의 범위 => -2147483648 ~ 2147483647
+
+    < 실수형 >
+    * double d2 = 1.234e2와 같은 표현을 사용할 수 있음.
+        - e2는 10^2을 의미함.
+
+    float: 자바의 실수를 표현하기 위한 자료형.
+        - 표현 범위: -3.4 * 10^38 ~ 3.4 * 10^38
+        - long과는 다르게 실수의 경우, double이 default임. float로 전환하기 위해서는 f or F를 접미사로 사용
+
+        - ex) float Pi = 3.14F => F를 붙임으로서 float형
+
+    double: float보다 더욱 큰 실수의 값을 나타낼 수 있는 자료형을 의미.
+        - 표현 범위: -1.7 * 10^308 ~ 1.7 * 10^308
+
+    < 8진수 or 16진수 >
+
+    8진수와 16진수는 int를 이용하여 표시함.
+        - 숫자 0으로 시작하면 8진수를 의미. / 숫자 0 + x의 형태로 시작하면 16진수를 의미함.
+
+        - ex) int octal = 023; => 19
+              int hex = 0xC; => 12
+
+    < 증감 연산자 >
+
+    ++ or --의 역할은 C에서의 작동과 동일하게 작동된다. 위치 및 기능 동일.
+        
+    boolean: 참 또는 거짓의 값을 갖는 자료형 => true or false
+        - 주로 조건문에서 조건의 판단 기준으로 활용됨.
+
+    char: 한 개의 문자만을 다루는 경우에 대한 자료형.
+        - single quote로 감싸주어야 함. ex) char a1 = 'a';
+        - char의 경우, 아스키 코드를 바탕으로 숫자로도 표현을 할 수 있다.
+        - 유니코드의 형태로도 표현이 가능함.
+
+        - ex) char a1 = 'a';
+              char a2 = 97;
+              char a3 = '\u0061'; ==> 3개의 출력값이 모두 a로 동일함.
+
     String[]: 문자열을 의미하는 자바의 자료형.([]가 있으므로 한 개가 아닌 여러 개로 이루어진 배열 의미.)
         - String[] args: args는 변수명, 살짝 convention
         - String 대문자 주의;
+        - 2가지의 생성 방식을 택할 수 있음. 1. String a = "Im Woochan"; => Literal 표현하기
+                                             String a = new String("Im Woochan"); => String 객체 생성.
+        - String이 가지고 있는 내장 method
+            - equals: 두 개의 문자열이 동일한지를 비교하여 결과값을 boolean으로 return
+                - ex) a.equals(b) ==> true or false
+                - == 연산자를 사용하게 될 경우, 같은 객체인지를 확인하므로 같은 문자열에 대해 false가 될 수도 있음.
+            
+            - indexOf: 문자열의 특정 문자가 시작되는 index를 return(int)
+                - ex) String a = "Hello Java";
+                      a.indexOf("Java"); => 6 return
 
-    int: 정수를 의미
+            - contains: 문자열에 특정 문자가 포함되어 있는 지에 대한 여부를 boolean으로 return
+                - ex) a.contains("Java") => true or false
 
-    long
-    double
-    boolean
-    char
+            - charAt: 문자열에서 특정 위치의 문자(char)를 return
+                - a.charAt(6) => 'j' 
+
+            - replaceAll: 문자열 중 특정 문자열을 다른 것으로 바꾸고자 하는 경우 사용.
+                - ex) a.replaceAll("Java", "World") => 바꿀 부분, 바꿀 내용
+
+            - substring: 문자열 중 특정 부분을 뽑아내는 경우.
+                - ex) a.substring(0, 4) => index를 기준으로 0~4까지를 가져옴
+                - 가져오는 범위는 0 <= a < 4 => 끝부분은 포함이 안됨.
+
+            - toUpperCase: 문자열을 모두 대문자로 변경하는 경우. 소문자의 경우(toLowerCase)
+                - a.toUpperCase() => 모두 대문자 변환
+
+            - split: 문자열을 특정 구분자로 분리하는 method
+                - ex) String a ="a:b:c:d";
+                      String[] result = a.split(":") => result는 {"a", "b", "c", "d"}
+
+        - 문자열 포매팅: C에서 print("%d")에서의 %d와 비슷한 듯
+            - String.format("I eat %d apples.", 3) => %d(문자열 포맷 코드) 자리에 3이 들어감.
+                - 문자열을 넣는 방법 String.format("I eat %ㄴ apples.", "five")
+                - 해당 DataType의 변수를 넣어도 가능함.
+                - 여러 개의 경우, 차례대로 나열하면 됨.
+                - 문자열 포맷 코드
+                    - %s: 문자열 => 자동으로 뒤의 값을 문자열로 변환.
+                    - %c: 문자 1개
+                    - %d: 정수
+                    - %f: 부동소수
+                    - %o: 8진수
+                    - %x: 16진수
+                    - %%: Literal(%를 표현하고 싶을 때)
+
+                    - 포맷 코드 앞에 숫자를 대입하는 경우, 전체 문자열의 길이를 설정
+                    - 숫자가 양수인 경우: 오른쪽 정렬 / 음수인 경우: 왼족 정렬
+                    - .4f의 경우, . 뒤의 숫자가 소수점 뒤로부터 나올 숫자의 개수.
+
+        - System.out.printf를 사용할 경우, 앞의 String.format없이 사용이 가능
+            - ex) System.out.printf("I eat %d apples. ", 3) ==> "I eat 3 apples. "
+
+            
+
     StringBuffer
     List
     Map
@@ -105,3 +204,14 @@ What is JDL
         짧지만 의미를 가져야 함
         순서를 나타내는 임수 변수 => i, j, k, m, n
         변수명에 _, $가 사용가능하지만 시작 문자로는 사용하지 않는다.
+
+<What is Wrapper class in Java>
+    primitive 자료형들의 경우, 각각 대응하는 Wrapper class들을 가지고 있게 된다.
+        - 객체 지향적인 프로그래밍을 위해서는 자료형 대신 다음의 class를 사용하게 될 것이다.
+
+        - int - Integer
+          long - Long
+          double - Double
+          float - Float
+          boolean - Boolean
+          char - char
