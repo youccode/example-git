@@ -133,6 +133,8 @@ What is JDL
         
     boolean: 참 또는 거짓의 값을 갖는 자료형 => true or false
         - 주로 조건문에서 조건의 판단 기준으로 활용됨.
+        - 주로 Comparison Operator를 이용한 값을 바탕으로 boolean 값이 return됨.
+            - >, <, <=, >=, == etc..
 
     char: 한 개의 문자만을 다루는 경우에 대한 자료형.
         - single quote로 감싸주어야 함. ex) char a1 = 'a';
@@ -151,7 +153,24 @@ What is JDL
         - 한 번 값이 지정되고 나면 변경 불가. immutable.
             - method들을 통한 변경은 모두 새로운 String 객체를 생성하는 과정임.
 
+        - Special Characters: 
+            - Single Quote => \'
+            - Double Quote => \"
+            - backslash => \\
+
+        - Escape Sequences
+            - \n: New Line
+            - \r: Carriage Return => 개행문자(줄바꿈 문자), OS에 따라 필요한 줄바꿈이 다름.
+                - \n => Unix | \r => Mac | \r\n => Windows
+            - \t: Tab
+            - \b: Backspace
+            - \f: Form Feed
+
         - String이 가지고 있는 내장 method
+            - length: String의 길이를 return 해주는 method.
+                - ex) String txt = "Hello, there. ";
+                      int cnt = txt.length();
+
             - equals: 두 개의 문자열이 동일한지를 비교하여 결과값을 boolean으로 return
                 - ex) a.equals(b) ==> true or false
                 - == 연산자를 사용하게 될 경우, 같은 객체인지를 확인하므로 같은 문자열에 대해 false가 될 수도 있음.
@@ -179,6 +198,14 @@ What is JDL
             - split: 문자열을 특정 구분자로 분리하는 method
                 - ex) String a ="a:b:c:d";
                       String[] result = a.split(":") => result는 {"a", "b", "c", "d"}
+
+            - concat: 두 개 이상의 String을 합성하는 과정에서 사용하는 method.
+                - 단순히 + 연산자를 사용하는 것도 상관없다.
+                    - int형과 String의 + 연산자는 String concatination으로 진행됨.
+                - ex) String firstName = "John";
+                      String lastName = "Doe";
+                      String name = firstName.concat(lastName);
+
 
         - 문자열 포매팅: C에서 print("%d")에서의 %d와 비슷한 듯
             - String.format("I eat %d apples.", 3) => %d(문자열 포맷 코드) 자리에 3이 들어감.
@@ -242,7 +269,11 @@ What is JDL
         - ex) String [] weaks = new String[7] => 반드시 길이의 값을 명시
               weaks[0] = "월" => 다음의 방식으로도 구현 가능.
 
-        - araayName.length => 배열의 길이를 출력함.
+        - araayName.length => 배열의 길이를 출력함. ! () 붙이지 않음 주의 !
+        - Multidimenstional Arrays: 두 개의 [][]를 사용한다.
+            - ex) int [][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7}};
+            - 내부 elements에 접근하기 위해서는 2개의 index가 필요해짐
+                - ex) myNumbers[1][2] ==> result: 7
 
         - Array Error: ArrayIndexOutOfBoundsException => 길이 이상의 index 값을 요구한 경우
     
@@ -328,3 +359,166 @@ What is JDL
         - |= => ex) a |= b => a = a | b
         - ^= => x ^=3 => x = x^3
         - >>= / <<=의 경우. 확실한 bit 연산자이다.
+
+< What is Math Class in Java? >
+
+    Math class를 사용하기 위해서는 Math class를 먼저 import해주어야 한다.
+        - import java.lang.Math;
+    
+    - Java Math Class 속의 method
+        - Math.max(num1, num2): 두 개의 숫자 중에서 더 큰 값을 찾기 위해 사용함.
+            - ex) Math.max(5, 10); => result: 10
+
+        - Math.min(num1, num2): 두 개의 숫자 중에서 더 작은 값을 찾기 위해 사용함.
+            - ex) Math.min(5, 10); => result: 5
+
+        - Math.sqrt(num): num 값의 제곱근을 return함.
+            - ex) Math.sqrt(64); => result: 8.0
+
+        - Math.abs(num): num의 절댓값을 return함.
+            - ex) Math.abs(-4.7); => result: 4.7
+
+        - Math.random(): 0(포함) 이상 1(미포함) 미만의 값 중 하나를 random으로 return
+            - Math.random(); => result: 예측 못함.(float로 출력됨.)
+            - 0에서 100 사이의 값을 원한다면 (int)Math.random()*101을 
+              함으로서 0에서 100 사이의 값을 구할 수 있음.
+
+< How to Use Conditions and If Statement? >
+
+    - if(condition1) {
+        // 실행되어야 할 코드의 내용을 여기 적는다.
+    } else if(condition2) {
+        // condition1이 false일 때, 먼저 확인되는 조건문에 대한 코드의 내용을 적는다.
+    } else {
+        // if 문과 else if문이 모두 false일 때, 실행되어야 할 코드의 내용을 여기 적는다.
+    }
+     
+     - Ternary Operator(삼항 연산자): 위의 내용을 짧게 한 줄로 표현하는 방법.
+        - ex) variable = (condition) ? experssionTrue : experssionFalse
+            - condition이 true일 경우, experssionTrue가 실행
+            - condition이 false일 경우, experssionFalse가 실행.
+
+< How to Use Switch Statements in Java? >
+
+    많은 경우의 수들이 존재하는 경우, 사용하는 statement
+
+    - ex)
+    switch(expression) {
+        case x:
+            // Code Block
+            break;
+        case y:
+            // Code Block
+            break;
+        defualt:
+            // Code Block
+    }
+
+    - expression is evaluated once => Finding a case(which fits to expression)
+     => if there is a matched case, then the code block is executed and break
+     => if there is no matched one, then the defulat case is executed.
+
+    - break keyword는 option이지만 필수적으로 넣어주어야 시간을 낭비하지 않을 수 있다.
+
+    - default keyword는 맞는 case가 없는 상황에 실행되는 code를 적어두는 곳이다.
+        - switch 구문의 맨 마지막 부분에 적어두어야 함.
+
+< How to Use Loop Statements in Java? >
+
+    * continue: 한 개의 iteration만을 넘어간다. 그 다음부턴 정상 작동. / break도 사용 가능.
+
+    - while(condition) {
+        // Code Block
+    }
+    
+    - while 내부의 condition value가 계속 true라면 지속적으로 내부의 code는 실행됨.
+
+    - Do/While Loop: while문의 변형, 조건을 확인하기 전에 한 번을 일단 실행됨.
+      이후에는 condition이 true인 경우에 한하여 code가 반복 실행됨.
+
+      - ex) do {
+                // Code Bloce
+            }
+            while(condition);
+
+    - For Loop: 원하는 횟수만큼 code가 반복되기를 바라는 경우에 사용하는 Statement
+
+    for( statement 1; statement 2; statement 3) {
+        // Code Block
+        // Statement 1 is executed once before excution of code block
+        // Statement 2 defines the condition for executing the code block
+        // Statement 3 is executed(every time) after code block has been executed
+    }
+    - ex)
+    for(int i = 0; i < 5; i++ ) {
+        System.out.println(i);
+    }
+
+    - for-each loop array 내부 속의 elements들을 순환할 때, 사용하는 구문이다.
+        - for(type variableName : arrayName) {
+                // Code Block
+          } 
+
+        - ex) String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+              for(String i : cars) {
+                    System.out.println(i);  
+              }  
+
+    - Array elements들을 Loop하는 또다른 방법
+    for(int i=0; i < cars.length; i++) {
+        System.out.println(cars[i]);
+    }
+    
+< What is Method in Java? >
+
+    - method(function): 우리가 call한 경우, 실행되는 특정 code block
+    - method에는 parameter를 넘겨줄 수 있음.
+        - parameter의 개수에는 제한이 없으며 commma로 잘 분리해주면 됨.
+        - 예제와 같이 받게 될 parameter의 DataType + name으로 적으면 된다.
+        - void 자리에 값을 변형시킴으로서 return 값의 데이터 타입을 지정할 수 있다.
+    < example >
+        public static void(int) myMethod(String fname) {
+            System.out.println(fname + " Refsnes");
+            // if void => int
+            // return num1 + num2;
+        }
+    
+    - method는 꼭 class 내부에서 정의되어야 함.
+    < example >
+        public class Main {
+            static void nameOfMethod() {
+                //Code Block
+            }
+
+            public static void main(String[] args) { => myMethod를 call하는 과정임.
+                myMethod();
+            }
+        }
+
+    - Method Overloading: DataType에 따라 같은 함수를 다르게 정의해줘야 하는 경우,
+        - plus method를 만들었을 때, int형과 float형을 각각 따로 만들게 됨.
+        - 하지만 Method Overloading에 의해 같은 Method을 사용해도 됨.
+            - parameter의 number 혹은 type이 다르다면 같은 이름의 method 정의 가능.
+< What is Scope in Java? >
+    
+    Scope는 내부의 변수가 접근 가능한 영역(region)을 지칭함.
+
+    - Method Scope: 
+        - Method 내부에서 정의된 Variable의 경우, Method 내부에서만 접근이 가능하다.
+    - Block Scope:
+        - {}(Curly Brace)로 니뉜 code의 덩어리는 block of code라고 한다. 
+          각 블럭으로 나뉜 경우, 각 블럭 외로는 변수 접근이 불가능하다.
+    
+< What is Recursion in Java? >
+
+    recursion은 fuction이 자기 스스로를 call하는 형태의 function을 의미한다.
+    < example >
+    public static int sum(int k) {
+        if (k > 0) {
+            return k + sum(k - 1);
+        } else {
+            return 0;
+        }
+    }
+
+    - Halting(정지하는) Condition: Recursion이 종료될 수 있도록 해주는 부분(필수임)
