@@ -26,9 +26,9 @@ int main(void)
             printf("%d\n", i);
         }
     }
-
-    // printf("%d", d(1234));
-    return 0;
+    char name = 시발
+        // printf("%d", d(1234));
+        return 0;
 }
 
 int d(int n)
